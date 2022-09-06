@@ -2,7 +2,7 @@ the_number = int(input())
 
 max_length = 0
 max_list = []
-for n in range(the_number+1):
+for n in range(the_number // 2 + 1, the_number + 1):
     numbers_list = [the_number]
     numbers_list.append(n)
     while numbers_list[-1] >= 0:
