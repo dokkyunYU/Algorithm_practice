@@ -1,4 +1,5 @@
 from heapq import heappop, heappush
+import sys
 
 house_cnt, road_cnt = map(int, input().split())
 heap = []
@@ -7,7 +8,7 @@ visited = [False]*(house_cnt + 1)
 distance = [[] for _ in range(house_cnt + 1)]
 
 for _ in range(road_cnt):
-    h1, h2, road_cost = map(int, input().split())
+    h1, h2, road_cost = map(int, sys.stdin.readline().split())
     heappush(heap2, (road_cost, h1))
     distance[h1].append((road_cost, h2))
     distance[h2].append((road_cost, h1))
