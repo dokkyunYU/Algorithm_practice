@@ -58,7 +58,9 @@ for test_count in range(1, int(input()) + 1):
     board_length = int(input())
     board_list = [list(map(int, input().split())) for _ in range(board_length)]
     warmhole_list = [[] for _ in range(5)]
-    result = []
+    result = 0
+    local_result1 = 0
+    local_result2 = 0
     for i in range(board_length):
         for j in range(board_length):
             if board_list[i][j] > 5:
@@ -67,10 +69,8 @@ for test_count in range(1, int(input()) + 1):
         for v in range(board_length):
             if board_list[u][v] == 0:
                 for k in range(-1, 2, 2):
-                    result.append(ball_move(u, v, k, 0))
-                    if result[-1] == 10:
-                        print("#1", u, v, k)
-                    result.append(ball_move(u, v, 0, k))
-                    if result[-1] == 10:
-                        print("#2", u, v, k)
-    print(f"#{test_count}", max(result))
+                    local_result1 = ball_move(u, v, k, 0)
+                    local_result2 = ball_move(u, v, 0, k)
+                    if local_result1 > result or local_result2 > result:
+                        result = local_result1 if local_result1 > local_result2 else local_result2
+    print(f"#{test_count}", result)
