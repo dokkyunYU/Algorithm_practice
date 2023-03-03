@@ -11,17 +11,11 @@ public class Main {
         System.out.println(fibonacci(loc));
         return;
     }
-    
+
     private static int fibonacci(int loc) throws IndexOutOfBoundsException {
-        if (loc == 0) {
-            return 0;
+        for (int i = 2; i <= loc; i++) {
+            fibo_num[i] = fibo_num[i-1] + fibo_num[i-2];
         }
-        else if (fibo_num[loc] != 0) {
-            return fibo_num[loc];
-        }
-        else {
-            fibo_num[loc] = fibonacci(loc - 1) + fibonacci(loc - 2);
-            return fibo_num[loc];
-        }
+        return fibo_num[loc];
     }
 }
