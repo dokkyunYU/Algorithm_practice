@@ -19,7 +19,7 @@ for day in range(days):
                 break
         for i in range(1, length):
             for j in range(1, length):
-                grow_board[i][j] = max(grow_board[i - 1][j], grow_board[i - 1][j - 1], grow_board[i][j - 1])
+                grow_board[i][j] = grow_board[0][j]
         grow_board_dict.update({idx: grow_board})
     
     for i in range(length):
