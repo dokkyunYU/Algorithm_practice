@@ -1,8 +1,11 @@
-length, days = map(int, input().split())
+from sys import stdin
+readline = stdin.readline
+
+length, days = map(int, readline().split())
 board = [[1 for _ in range(length)] for _ in range(length)]
 grow_board_dict = {}
 for day in range(days):
-    idx = input()
+    idx = readline()
     grow_board = grow_board_dict.get(idx)
     if not grow_board:
         grow_board = [[0 for _ in range(length)] for _ in range(length)]
