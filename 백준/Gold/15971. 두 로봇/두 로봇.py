@@ -14,8 +14,8 @@ else:
         rooms[room2].append([room1, length, 0])
 
     queue = deque(rooms[r1])
-    visited = set([r1])
-
+    visited = [False for _ in range(n+1)]
+    visited[r1] = True
     while queue:
         next, length, max_length = queue.popleft()
         if next == r2:
@@ -24,5 +24,7 @@ else:
             else:
                 print(length - max_length)
             break
-        queue.extend(list(map(lambda x: [x[0], x[1] + length, max(x[1], max_length)], [i for i in rooms[next] if i[0] not in visited])))
-        visited.update(set(map(lambda x:x[0], rooms[next])))
+        for x in rooms[next]:
+            if not visited[x[0]]:
+                queue.appendleft([x[0], x[1] + length, max(x[1], max_length)])
+                visited[x[0]] = True
