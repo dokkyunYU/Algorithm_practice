@@ -9,22 +9,22 @@ for _ in range(9):
 
 h_cards = set()
 
-for comb in [list(i) for i in list(combinations([j for j in range(1,10)], 3))]:
+for comb in [i for i in list(combinations([j for j in range(1,10)], 3))]:
     for i in list(map(sum, zip(*[cards[i] for i in comb]))):
         if i not in [3,30,300,111]:
             break
     else:
-        h_cards.add("".join(list(map(str, sorted(comb)))))
+        h_cards.add(comb)
 
 score = 0
 gcall = False
 for _ in range(int(input())):
     turn = insp()
     if turn[0] == "H":
-        turn_str = "".join(list(map(str, sorted(turn[1:]))))
-        if turn_str in h_cards:
+        turn_tupl = tuple(map(int,sorted(turn[1:])))
+        if turn_tupl in h_cards:
             score += 1
-            h_cards.remove(turn_str)
+            h_cards.remove(turn_tupl)
         else:
             score -= 1
     else:
