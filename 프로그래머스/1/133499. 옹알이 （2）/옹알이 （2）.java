@@ -1,7 +1,6 @@
 class Solution {
     public int solution(String[] babbling) {
         int answer = 0;
-        int size = babbling.length;
         String[] canSpeak = {"aya", "ye", "woo", "ma"};
         for (String i : babbling) {
             for(String speaking : canSpeak) {
