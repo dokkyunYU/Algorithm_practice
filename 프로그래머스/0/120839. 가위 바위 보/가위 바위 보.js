@@ -1,0 +1,4 @@
+function solution(rsp) {
+    const winning = {"2":"0", "0":"5", "5":"2"};
+    return [...rsp].reduce((acc,cur) => acc + winning[cur], '')
+}
