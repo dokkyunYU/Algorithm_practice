@@ -1,7 +1,6 @@
 function solution(k, score) {
-    const answer = [...score]
     const scArr = []
-    return answer.map(cur => {
+    return score.map(cur => {
         scArr.push(cur)
         scArr.sort((a,b) => b-a)
         if (scArr.length > k)
